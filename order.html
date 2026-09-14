@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order the Kashta Box — Ga3datna</title>
+<meta name="description" content="Place your Kashta Box order — name, number and address, and we take it from there.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Noto+Kufi+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="site-bar">
+  <a class="home" href="/">
+    <img src="/assets/logo-mark.png" alt="Ga3datna logo">
+    GA3DATNA
+  </a>
+  <a class="back-link" href="/kashta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Back to the box
+  </a>
+</div>
+
+<main class="page">
+  <div class="order-grid">
+
+    <form class="panel" name="kashta-order" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+      <input type="hidden" name="form-name" value="kashta-order">
+      <input type="hidden" name="box" value="Kashta Box">
+      <input type="hidden" name="order-total" id="order-total" value="22 KD">
+      <p style="display:none">
+        <label>Don't fill this out: <input name="bot-field"></label>
+      </p>
+
+      <div>
+        <p class="eyebrow">Delivery details</p>
+        <h1 class="form-title">Where should we bring it?</h1>
+      </div>
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" pattern="[0-9+\s()-]{8,}" required>
+        <span class="hint">We call or message you to confirm the drop-off time.</span>
+      </div>
+
+      <div class="field">
+        <label for="address">Delivery address</label>
+        <textarea id="address" name="address" autocomplete="street-address" placeholder="Area, block, street, house or building number" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="quantity">How many boxes</label>
+        <select id="quantity" name="quantity">
+          <option value="1">1 box</option>
+          <option value="2">2 boxes</option>
+          <option value="3">3 boxes</option>
+          <option value="4">4 boxes</option>
+          <option value="5">5 boxes</option>
+        </select>
+      </div>
+
+      <button class="btn full" type="submit">Place order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+
+    <aside class="panel">
+      <p class="eyebrow">Your order</p>
+
+      <div>
+        <p class="form-title">Kashta Box<span class="arabic" style="font-size:0.6em; opacity:0.8;"> كشتة</span></p>
+        <p class="hint" style="color:#8892a3;">Desert hangout box for four</p>
+      </div>
+
+      <div class="summary-line">
+        <span>22 KD × <span id="summary-qty">1</span></span>
+        <span id="summary-subtotal">22 KD</span>
+      </div>
+
+      <div class="summary-line">
+        <span>Delivery</span>
+        <span>Free</span>
+      </div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <span id="summary-total">22 KD</span>
+      </div>
+
+      <p class="note">No payment is taken on this page. Settle the total in cash when the box arrives — card payment is coming soon.</p>
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  Ga3datna — <span class="arabic">أين تقعد اليوم؟</span> Where will you gather today?
+</footer>
+
+<script>
+  var BOX_PRICE = 22;
+  var qtySelect = document.getElementById('quantity');
+  var qtyLabel = document.getElementById('summary-qty');
+  var subtotalLabel = document.getElementById('summary-subtotal');
+  var totalLabel = document.getElementById('summary-total');
+  var totalField = document.getElementById('order-total');
+
+  function updateTotals() {
+    var qty = parseInt(qtySelect.value, 10) || 1;
+    var total = qty * BOX_PRICE + ' KD';
+    qtyLabel.textContent = qty;
+    subtotalLabel.textContent = total;
+    totalLabel.textContent = total;
+    totalField.value = total;
+  }
+
+  qtySelect.addEventListener('change', updateTotals);
+  updateTotals();
+</script>
+
+</body>
+</html>

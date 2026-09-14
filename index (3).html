@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ga3datna — قعدتنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Noto+Kufi+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7EAD3;
+    --cream-deep: #F0DFBB;
+    --sand: #D9B27F;
+    --sand-deep: #C29A61;
+    --sand-ink: #3E2A16;
+    --sea-mid: #2E7690;
+    --sea-deep: #123F52;
+    --sea-darker: #0C2E3C;
+    --navy: #26395C;
+    --foam: #FDF9F0;
+    --ink: #1E2A3A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  .arabic { font-family: 'Noto Kufi Arabic', sans-serif; }
+
+  /* ---------- HERO ---------- */
+
+  header.hero {
+    position: relative;
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+    background: radial-gradient(ellipse 90% 60% at 50% -10%, var(--cream-deep), transparent 70%), var(--cream);
+  }
+
+  .logo-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-wrap img {
+    width: min(220px, 54vw);
+    height: auto;
+    filter: drop-shadow(0 16px 28px rgba(18, 63, 82, 0.22));
+  }
+
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    color: var(--navy);
+  }
+
+  .brand-name .ar {
+    display: block;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-weight: 700;
+    font-size: 0.55em;
+    color: var(--sea-deep);
+    margin-top: 0.15em;
+  }
+
+  .slogan {
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+    font-weight: 700;
+    color: var(--sea-deep);
+    margin-top: 0.1rem;
+    line-height: 1.7;
+  }
+
+  .tagline {
+    max-width: 30rem;
+    color: #55637d;
+    font-size: 1.05rem;
+    margin: 0.1rem auto 0;
+  }
+
+  /* ---------- PRODUCTS ---------- */
+
+  main.products {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 780px) {
+    main.products { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 18px 40px rgba(18, 63, 82, 0.12);
+  }
+
+  .card-top {
+    position: relative;
+    padding: 2.4rem 2rem 4.5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .kashta .card-top {
+    background: linear-gradient(180deg, #EFD9AD 0%, var(--sand) 100%);
+    color: var(--sand-ink);
+  }
+
+  .bahar .card-top {
+    background: linear-gradient(180deg, #57A0B8 0%, var(--sea-mid) 100%);
+    color: var(--foam);
+  }
+
+  .card-top .scape {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 60px;
+  }
+
+  .box-icon { width: 56px; height: 56px; }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-top: 0.6rem;
+  }
+
+  .card-title .ar {
+    display: block;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.5em;
+    font-weight: 500;
+    opacity: 0.85;
+    margin-top: 0.25rem;
+  }
+
+  .card-tag {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .card-body {
+    background: var(--foam);
+    padding: 1.8rem 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.2rem;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .price {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: var(--navy);
+  }
+
+  .price span {
+    font-size: 0.95rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    color: #8892a3;
+  }
+
+  .stock-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .kashta .stock-pill { background: #F1E1C0; color: var(--sand-ink); }
+  .bahar .stock-pill { background: #DCEEF2; color: var(--sea-deep); }
+
+  .includes-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8892a3;
+  }
+
+  .includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .includes svg {
+    width: 17px; height: 17px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .kashta .includes svg { color: var(--sand-deep); }
+  .bahar .includes svg { color: var(--sea-mid); }
+
+  .order-btn {
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+    padding: 0.9rem 1.4rem;
+    border-radius: 12px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .order-btn:hover { transform: translateY(-2px); }
+  .order-btn:active { transform: translateY(0); }
+  .order-btn svg { width: 17px; height: 17px; transition: transform 0.3s ease; }
+  .order-btn:hover svg { transform: translateX(3px); }
+
+  .kashta .order-btn { background: var(--sand-ink); color: var(--foam); }
+  .bahar .order-btn { background: var(--sea-deep); color: var(--foam); }
+
+  a.order-btn { text-decoration: none; }
+
+  /* Twelve items read better in two columns */
+  .kashta .includes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 1.1rem;
+  }
+
+  @media (max-width: 520px) {
+    .kashta .includes { grid-template-columns: 1fr; }
+  }
+
+  /* Ba7ar Box is not on sale yet */
+  .coming-soon {
+    margin: auto;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--sea-deep);
+  }
+
+  .bahar .order-btn.ghost {
+    background: transparent;
+    color: var(--sea-deep);
+    box-shadow: inset 0 0 0 1.5px rgba(18, 63, 82, 0.28);
+    font-size: 0.95rem;
+  }
+
+  .bahar .order-btn.ghost:hover { background: rgba(46, 118, 144, 0.08); }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem 2.4rem;
+    background: var(--cream);
+    color: #8a7a5c;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo-wrap">
+    <img src="/assets/logo-mark.png" alt="Ga3datna logo">
+    <h1 class="brand-name">GA3DATNA<span class="ar">قعدتنا</span></h1>
+    <p class="slogan arabic" dir="rtl" lang="ar">وياكم بر أو بحر</p>
+    <p class="tagline">Ready-made hangout boxes, delivered.</p>
+  </div>
+</header>
+
+<main class="products">
+
+  <div class="card kashta">
+    <div class="card-top">
+      <svg class="box-icon" viewBox="0 0 64 64" fill="none">
+        <path d="M8 50 L26 16 L34 30 L40 20 L56 50 Z" fill="#8a5a2b" stroke="#3E2A16" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="4" y1="50" x2="60" y2="50" stroke="#3E2A16" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="47" cy="14" r="5" fill="#F3D77C" stroke="#3E2A16" stroke-width="1.5"/>
+      </svg>
+      <h2 class="card-title">Kashta Box<span class="ar">كشتة</span></h2>
+      <p class="card-tag">Everything for a desert hangout under the stars</p>
+      <svg class="scape" viewBox="0 0 500 100" preserveAspectRatio="none">
+        <path d="M0,50 Q80,20 170,45 T340,35 Q420,20 500,45 L500,100 L0,100 Z" fill="#C29A61" opacity="0.9"/>
+        <path d="M0,70 Q100,45 220,65 T500,60 L500,100 L0,100 Z" fill="#AD8452"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="price-row">
+        <span class="price">22 KD <span>/ box</span></span>
+        <span class="stock-pill">Ships in 2 days</span>
+      </div>
+      <div>
+        <p class="includes-label">What's inside</p>
+        <ul class="includes">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Portable single use grill</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Match sticks</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Fire starter</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cups paper</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Utensils</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Tissue box</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Heat bag</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Wipes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Trash bag</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> First aid kit</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Paper plate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Charcoal</li>
+        </ul>
+      </div>
+      <a class="order-btn" href="/kashta">View &amp; order Kashta Box
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="card bahar">
+    <div class="card-top">
+      <svg class="box-icon" viewBox="0 0 64 64" fill="none">
+        <path d="M32 6 V40" stroke="#FDF9F0" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M32 12 L50 30 Q40 34 32 30 Z" fill="#FDF9F0"/>
+        <path d="M14 40 L50 40 L44 50 L20 50 Z" fill="#F3D77C" stroke="#0C2E3C" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M4 52 Q16 46 28 52 T52 52 T60 48" stroke="#FDF9F0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <h2 class="card-title">Ba7ar Box<span class="ar">بحر</span></h2>
+      <p class="card-tag">Everything for a sea-side hangout, packed and ready</p>
+      <svg class="scape" viewBox="0 0 500 100" preserveAspectRatio="none">
+        <path d="M0,50 Q60,30 120,50 T240,50 T360,50 T500,50 L500,100 L0,100 Z" fill="#0F4B60" opacity="0.9"/>
+        <path d="M0,70 Q70,50 140,70 T280,70 T420,70 T500,70 L500,100 L0,100 Z" fill="#0A3444"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <p class="coming-soon">Coming next season</p>
+      <a class="order-btn ghost" href="/kashta">Browse the Kashta Box instead
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Ga3datna — <span class="arabic">أين تقعد اليوم؟</span> Where will you gather today?
+</footer>
+
+</body>
+</html>
